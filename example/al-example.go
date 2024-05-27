@@ -1,10 +1,12 @@
 package main
 
-import "openal/al"
-import "openal/alc"
+import (
+	"fmt"
+	"time"
 
-import "time"
-import "fmt"
+	"github.com/phf/go-openal/al"
+	"github.com/phf/go-openal/alc"
+)
 
 func main() {
 	out := alc.OpenDevice("")
@@ -16,10 +18,10 @@ func main() {
 
 	in := alc.CaptureOpenDevice("", 8000, al.FormatMono16, 16000)
 	fmt.Printf("%x\n", in.GetError())
-	in.CaptureStart();
+	in.CaptureStart()
 	fmt.Printf("%x\n", in.GetError())
 
-	time.Sleep(1*1000*1000*1000)
+	time.Sleep(1 * 1000 * 1000 * 1000)
 
 	in.CaptureStop()
 	fmt.Printf("%x\n", in.GetError())
@@ -47,5 +49,5 @@ func main() {
 	src.Play()
 	fmt.Printf("%x\n", al.GetError())
 
-	time.Sleep(1*1000*1000*1000)
+	time.Sleep(1 * 1000 * 1000 * 1000)
 }
