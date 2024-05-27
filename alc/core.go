@@ -18,6 +18,7 @@
 package alc
 
 //#cgo linux LDFLAGS: -lopenal
+//#cgo linux CFLAGS: -I/../include
 /*
 #include <stdlib.h>
 #include <AL/al.h>
